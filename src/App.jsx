@@ -513,8 +513,8 @@ export default function Portfolio() {
       }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
           <div className="display" style={{ fontWeight: 700, fontSize: 18 }}>
-            <span className="gradient-text">PNB</span>
-            <span style={{ color: "#475569", marginLeft: 6, fontSize: 13, fontWeight: 400 }}>· Portfolio</span>
+            <span className="gradient-text">Pritam's</span>
+            <span style={{ color: "#9ade12", marginLeft: 6, fontSize: 13, fontWeight: 400 }}>· Portfolio</span>
           </div>
           <div style={{ display: "flex", gap: 28, alignItems: "center" }}>
             {NAV_LINKS.map(n => (
@@ -603,11 +603,11 @@ export default function Portfolio() {
                   backdropFilter: "blur(10px)",
                 }}>
 <img
-  src="/profile.PNG"
+  src="/profile.png"
   alt="Pritam Narayan Behera"
   style={{
     width: "100%",
-    height: "100%",
+    height: "160%",
     objectFit: "cover",
     objectPosition: "50% 20%",
     borderRadius: "50%",
