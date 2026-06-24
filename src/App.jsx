@@ -602,24 +602,17 @@ export default function Portfolio() {
                   position: "relative", overflow: "hidden",
                   backdropFilter: "blur(10px)",
                 }}>
-                  <svg width="180" height="180" viewBox="0 0 180 180">
-                    <defs>
-                      <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#1E3A8A" />
-                        <stop offset="100%" stopColor="#0F172A" />
-                      </linearGradient>
-                      <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#60A5FA" />
-                        <stop offset="100%" stopColor="#22D3EE" />
-                      </linearGradient>
-                    </defs>
-                    <circle cx="90" cy="90" r="90" fill="url(#avatarGrad)" />
-                    <circle cx="90" cy="68" r="30" fill="rgba(96,165,250,0.2)" />
-                    <circle cx="90" cy="68" r="24" fill="rgba(96,165,250,0.4)" />
-                    <ellipse cx="90" cy="145" rx="46" ry="30" fill="rgba(96,165,250,0.15)" />
-                    <text x="90" y="76" textAnchor="middle" fontFamily="Space Grotesk, sans-serif" fontSize="22" fontWeight="700" fill="url(#textGrad)">PNB</text>
-                    <text x="90" y="130" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="11" fill="rgba(148,163,184,0.9)">Business Analyst</text>
-                  </svg>
+<img
+  src="/profile.PNG"
+  alt="Pritam Narayan Behera"
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    objectPosition: "50% 20%",
+    borderRadius: "50%",
+  }}
+/>
                 </div>
                 <div style={{ position: "absolute", bottom: 10, right: 10, background: "#10B981", borderRadius: "50%", width: 20, height: 20, border: "2px solid var(--navy)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10 }}>✓</div>
               </div>
