@@ -514,7 +514,7 @@ export default function Portfolio() {
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
           <div className="display" style={{ fontWeight: 700, fontSize: 18 }}>
             <span className="gradient-text">Pritam's</span>
-            <span style={{ color: "#9ade12", marginLeft: 6, fontSize: 13, fontWeight: 400 }}>· Portfolio</span>
+            <span style={{ color: "#9ade12", marginLeft: 6, fontSize: 17, fontWeight: 400 }}>· Portfolio</span>
           </div>
           <div style={{ display: "flex", gap: 28, alignItems: "center" }}>
             {NAV_LINKS.map(n => (
@@ -560,9 +560,9 @@ export default function Portfolio() {
                 <span className="mono" style={{ color: "#94A3B8", fontSize: 13 }}>Available for opportunities</span>
               </div>
 
-              <h1 className="display" style={{ fontSize: "clamp(36px,5vw,64px)", fontWeight: 700, lineHeight: 1.1, marginBottom: 16 }}>
-                <span style={{ display: "block", color: "var(--white)" }}>Pritam Narayan</span>
-                <span className="gradient-text">Behera</span>
+              <h1 className="display" style={{ fontSize: "clamp(25px,4vw,34px)", fontWeight: 700, lineHeight: 2.1, marginBottom: 17 }}>
+                <span style={{ display: "block", color: "var(--white)" }}>Pritam Narayan Behera</span>
+                
               </h1>
 
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 24 }}>
@@ -653,7 +653,7 @@ export default function Portfolio() {
           sub="Bridging business objectives with technology-driven solutions through data, CRM systems, and strategic thinking." />
         <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
           <div>
-            <h3 className="display" style={{ fontSize: 20, fontWeight: 600, marginBottom: 16, color: "#F9FAFB" }}>Professional Focus</h3>
+            <h3 className="display" style={{ fontSize: 16, fontWeight: 600, marginBottom: 16, color: "#F9FAFB" }}>Professional Focus</h3>
             <p style={{ color: "#94A3B8", lineHeight: 1.8, marginBottom: 20, fontSize: 15 }}>
               I'm a Business Analyst and CRM Implementation Professional with a strong academic foundation in Mathematics, Operations Management, Information Technology, and Data Science. My work bridges the gap between business strategy and technology execution.
             </p>
@@ -920,11 +920,11 @@ export default function Portfolio() {
 
       {/* FOOTER */}
       <footer style={{ borderTop: "1px solid var(--border)", padding: "32px 24px", textAlign: "center" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div className="display" style={{ fontWeight: 600, fontSize: 16, marginBottom: 8 }}>
             <span className="gradient-text">Pritam Narayan Behera</span>
           </div>
-          <p style={{ color: "#475569", fontSize: 13, marginBottom: 16 }}>Business Analyst · CRM Consultant · Digital Transformation Professional</p>
+          <p style={{ color: "#d4e70b", fontSize: 13, marginBottom: 16 }}>Business Analyst · CRM Consultant · Digital Transformation Professional</p>
           <div style={{ display: "flex", justifyContent: "center", gap: 20, marginBottom: 20 }}>
             {NAV_LINKS.map(n => (
               <span key={n} style={{ color: "#64748B", fontSize: 13, cursor: "pointer" }} onClick={() => scrollTo(n.toLowerCase())}>{n}</span>
