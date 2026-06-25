@@ -921,7 +921,7 @@ export default function Portfolio() {
       {/* FOOTER */}
       <footer style={{ borderTop: "1px solid var(--border)", padding: "32px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div className="display" style={{ fontWeight: 700, fontSize: 20, marginBottom: 8 }}>
+          <div className="display" style={{ fontWeight: 600, fontSize: 16, marginBottom: 8 }}>
             <span className="gradient-text">Pritam Narayan Behera</span>
           </div>
           <p style={{ color: "#475569", fontSize: 13, marginBottom: 16 }}>Business Analyst · CRM Consultant · Digital Transformation Professional</p>
@@ -930,7 +930,7 @@ export default function Portfolio() {
               <span key={n} style={{ color: "#64748B", fontSize: 13, cursor: "pointer" }} onClick={() => scrollTo(n.toLowerCase())}>{n}</span>
             ))}
           </div>
-          <p style={{ color: "#374151", fontSize: 12 }}>© {new Date().getFullYear()} Pritam Narayan Behera. All rights reserved.</p>
+          <p style={{ color: "#eeee0c", fontSize: 12 }}>© {new Date().getFullYear()} Pritam Narayan Behera. All rights reserved.</p>
         </div>
       </footer>
     </div>
