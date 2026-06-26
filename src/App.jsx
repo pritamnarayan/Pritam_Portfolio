@@ -500,7 +500,7 @@ export default function Portfolio() {
     setFormStatus('sending');
 
     try {
-      const res = await fetch('http://localhost:5000/send', {
+      const res = await fetch('https://your-render-url.onrender.com/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
