@@ -500,7 +500,7 @@ export default function Portfolio() {
     setFormStatus('sending');
 
     try {
-      const res = await fetch('https://your-render-url.onrender.com/send', {
+      const res = await fetch('https://pritam-portfolio-95bp.onrender.com/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
