@@ -1,0 +1,50 @@
+const express = require('express');
+const nodemailer = require('nodemailer');
+const cors = require('cors');
+const { config } = require('./config.js');
+
+const app = express();
+app.use(cors({ origin: '*' }));
+app.use(express.json());
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: config.GMAIL_USER,
+    pass: config.GMAIL_PASS,
+  },
+});
+
+app.post('/send', async (req, res) => {
+  const { name, email, subject, message } = req.body;
+
+  if (!name || !email || !subject || !message) {
+    return res.status(400).json({ error: 'All fields are required.' });
+  }
+
+  const mailOptions = {
+    from: `"${name}" <${config.GMAIL_USER}>`,
+    to: config.GMAIL_USER,
+    replyTo: email,
+    subject: `Portfolio Contact: ${subject}`,
+    html: `
+      <h2>New message from your Portfolio</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Subject:</strong> ${subject}</p>
+      <hr/>
+      <p><strong>Message:</strong></p>
+      <p>${message.replace(/\n/g, '<br/>')}</p>
+    `,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error('Mail error:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.listen(5000, () => console.log('Server running on port 5000'));

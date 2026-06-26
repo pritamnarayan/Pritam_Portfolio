@@ -493,13 +493,32 @@ export default function Portfolio() {
     setMenuOpen(false);
   };
 
-  const handleForm = (e) => {
-    e.preventDefault();
-    setFormSent(true);
-    setTimeout(() => setFormSent(false), 4000);
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
+  const [formStatus, setFormStatus] = useState('');
 
+  const handleForm = async (e) => {
+    e.preventDefault();
+    setFormStatus('sending');
+
+    try {
+      const res = await fetch('http://localhost:5000/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setFormSent(true);
+        setFormStatus('success');
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setFormSent(false), 4000);
+      } else {
+        setFormStatus('error');
+      }
+    } catch {
+      setFormStatus('error');
+    }
+  };
   return (
     <div style={{ minHeight: "100vh", background: "var(--navy)", overflowX: "hidden" }}>
       <style>{CSS}</style>
@@ -560,7 +579,7 @@ export default function Portfolio() {
                 <span className="mono" style={{ color: "#94A3B8", fontSize: 13 }}>Available for opportunities</span>
               </div>
 
-              <h1 className="display" style={{ fontSize: "clamp(25px,4vw,34px)", fontWeight: 700, lineHeight: 2.1, marginBottom: 17 }}>
+              <h1 className="display" style={{ fontSize: "clamp(25px,4vw,34px)", fontWeight: 700, lineHeight: 2.1, marginBottom: 17, textAlign: "left" }}>
                 <span style={{ display: "block", color: "var(--white)" }}>Pritam Narayan Behera</span>
                 
               </h1>
@@ -909,9 +928,16 @@ export default function Portfolio() {
                     onChange={e => setFormData(p => ({ ...p, message: e.target.value }))} required
                     style={{ resize: "vertical", minHeight: 120 }} />
                 </div>
-                <button type="submit" className="btn-primary" style={{ width: "100%", justifyContent: "center" }}>
-                  Send Message →
+                <button type="submit" className="btn-primary"
+                  style={{ width: "100%", justifyContent: "center" }}
+                  disabled={formStatus === 'sending'}>
+                  {formStatus === 'sending' ? 'Sending...' : 'Send Message →'}
                 </button>
+                {formStatus === 'error' && (
+                  <p style={{ color: '#f87171', marginTop: 12, fontSize: 14, textAlign: 'center' }}>
+                    ✗ Failed to send. Please try again.
+                  </p>
+                )}
               </form>
             )}
           </div>
