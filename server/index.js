@@ -1,7 +1,6 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-const { config } = require('./config.js');
 
 const app = express();
 app.use(cors({ origin: '*' }));
@@ -10,8 +9,8 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: config.GMAIL_USER,
-    pass: config.GMAIL_PASS,
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASS,
   },
 });
 
@@ -23,8 +22,8 @@ app.post('/send', async (req, res) => {
   }
 
   const mailOptions = {
-    from: `"${name}" <${config.GMAIL_USER}>`,
-    to: config.GMAIL_USER,
+    from: `"${name}" <${process.env.GMAIL_USER}>`,
+    to: process.env.GMAIL_USER,
     replyTo: email,
     subject: `Portfolio Contact: ${subject}`,
     html: `
