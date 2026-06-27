@@ -1,11 +1,14 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-
+process.env.GMAIL_USER = 'pritamnarayan771@gmail.com';
+process.env.GMAIL_PASS = 'haeq zncb uskt rhud';
 const app = express();
-app.use(cors({ origin: '*' }));
+app.use(cors({
+  origin: ['https://pritam-portfolio-bay.vercel.app', 'http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176', 'http://localhost:5177', 'http://localhost:5178', 'http://localhost:5180'],
+  methods: ['POST'],
+}));
 app.use(express.json());
-
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,
@@ -16,14 +19,11 @@ const transporter = nodemailer.createTransport({
     pass: process.env.GMAIL_PASS,
   },
 });
-
 app.post('/send', async (req, res) => {
   const { name, email, subject, message } = req.body;
-
   if (!name || !email || !subject || !message) {
     return res.status(400).json({ error: 'All fields are required.' });
   }
-
   const mailOptions = {
     from: `"${name}" <${process.env.GMAIL_USER}>`,
     to: process.env.GMAIL_USER,
@@ -39,7 +39,6 @@ app.post('/send', async (req, res) => {
       <p>${message.replace(/\n/g, '<br/>')}</p>
     `,
   };
-
   try {
     await transporter.sendMail(mailOptions);
     res.status(200).json({ success: true });
@@ -48,5 +47,4 @@ app.post('/send', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
 app.listen(5000, () => console.log('Server running on port 5000'));
